@@ -33,7 +33,7 @@ app.get('/get', (req, res) => {
 
 app.put('/update/:id', (req, res) => {
   const { id } = req.params;
-  TodoModel.findByIdAndUpdate({ _id: id }, { done: true })
+  TodoModel.findByIdAndUpdate({ _id: id }, { done: req.body.done })
     .then((result) => {
       res.json(result);
     })
@@ -42,7 +42,7 @@ app.put('/update/:id', (req, res) => {
 
 app.delete('/delete/:id', (req, res) => {
   const { id } = req.params;
-  TodoModel.findByIdAndDelete({ _id: id })
+  TodoModel.findByIdAndDelete({ _id: id }, { done: true })
     .then((result) => {
       res.json(result);
     })
@@ -59,6 +59,8 @@ app.post('/add', (req, res) => {
   console.log('Received task:', task);
 });
 
-app.listen(3001, () => {
+const port = process.env.PORT || 3000;
+
+app.listen(port, () => {
   console.log('server is running ');
 });
