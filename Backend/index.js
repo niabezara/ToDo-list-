@@ -13,10 +13,9 @@ const DB = process.env.DATABASE.replace(
 );
 
 mongoose
-  .connect(DB, {
-    useNewUrlParser: true,
-  })
-  .then(() => console.log('db connection success'));
+  .connect(DB)
+  .then(() => console.log('db connection success'))
+  .catch((err) => console.error('Error connecting to MongoDB:', err));
 
 app.use(cors());
 app.use(express.json());
