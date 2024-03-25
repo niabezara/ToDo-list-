@@ -13,24 +13,11 @@ export default function Home() {
   }, []);
 
   const handleUpdate = (id) => {
-    const updatedTodos = todos.map((todo) => {
-      if (todo._id === id) {
-        // Toggle the 'done' field
-        return { ...todo, done: !todo.done };
-      }
-      return todo;
-    });
-
     axios
-      .put("https://todo-list-czku.onrender.com//update/" + id, {
-        done: !todos.find((todo) => todo._id === id).done,
-      })
-      .then(() => {
-        setTodos(updatedTodos);
-      })
+      .put("https://todo-list-czku.onrender.com/update/" + id)
+      .then(() => location.reload())
       .catch((err) => console.log(err));
   };
-
   const handleDelete = (id) => {
     axios
       .delete("https://todo-list-czku.onrender.com/delete/" + id)
