@@ -20,6 +20,10 @@ mongoose
 app.use(cors());
 app.use(express.json());
 
+app.get('/', (req, res) => {
+  res.send('Welcome to the Todo List API');
+});
+
 app.get('/get', (req, res) => {
   TodoModel.find()
     .then((result) => {
