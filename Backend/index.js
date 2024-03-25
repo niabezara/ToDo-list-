@@ -20,7 +20,7 @@ mongoose
 app.use(cors());
 app.use(express.json());
 
-app.get('/', (req, res) => {
+app.get('/get', (req, res) => {
   TodoModel.find()
     .then((result) => {
       res.json(result);
