@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import { Container, Input, ToDoBtn } from "../styles/Create";
 
 export default function Create() {
   const [task, setTask] = useState();
@@ -12,15 +13,16 @@ export default function Create() {
   };
 
   return (
-    <div>
-      <input
+    <Container>
+      <Input
         onChange={(e) => setTask(e.target.value)}
-        label="type your task"
         value={task}
+        placeholder="What is the task today?"
       />
-      <button onClick={handleAdd} disabled={task ? false : true}>
+
+      <ToDoBtn onClick={handleAdd} disabled={task ? false : true}>
         Add Task
-      </button>
-    </div>
+      </ToDoBtn>
+    </Container>
   );
 }
