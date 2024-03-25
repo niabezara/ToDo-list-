@@ -49,7 +49,7 @@ export default function Home() {
   const classes = useStyles();
   useEffect(() => {
     axios
-      .get("http://localhost:3001/get")
+      .get("http://localhost:3001/")
       .then((result) => setTodos(result.data))
       .catch((err) => console.log(err));
   }, []);
