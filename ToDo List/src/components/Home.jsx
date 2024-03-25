@@ -7,7 +7,7 @@ export default function Home() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3001/")
+      .get(`https://todo-list-czku.onrender.com/get`)
       .then((result) => setTodos(result.data))
       .catch((err) => console.log(err));
   }, []);
@@ -22,7 +22,7 @@ export default function Home() {
     });
 
     axios
-      .put("http://localhost:3001/update/" + id, {
+      .put("https://todo-list-czku.onrender.com//update/" + id, {
         done: !todos.find((todo) => todo._id === id).done,
       })
       .then(() => {
@@ -33,7 +33,7 @@ export default function Home() {
 
   const handleDelete = (id) => {
     axios
-      .delete("http://localhost:3001/delete/" + id)
+      .delete("https://todo-list-czku.onrender.com/delete/" + id)
       .then(() => location.reload())
       .catch((err) => console.log(err));
   };

@@ -6,7 +6,7 @@ export default function Create() {
 
   const handleAdd = () => {
     axios
-      .post("http://localhost:3001/add", { task: task })
+      .post("https://todo-list-czku.onrender.com/add", { task: task })
       .then(() => location.reload())
       .catch((err) => console.log(err));
   };
