@@ -33,6 +33,7 @@ export default function Home() {
         {todos.map((todo) => (
           <div key={todo._id}>
             <input
+              type="checkbox"
               onClick={() => handleUpdate(todo._id, !todo.done)}
               checked={todo.done}
             />
